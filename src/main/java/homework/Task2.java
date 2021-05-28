@@ -66,6 +66,7 @@ public class Task2 {
             }
 
         }
+
         System.out.println("Задание 3");
         System.out.println("Numbers: " + Arrays.toString(numbers));
         System.out.println("Result: " + Arrays.toString(result2));

@@ -98,6 +98,7 @@ true.
         */
 
 
+
     public static boolean task6(int temp1, int temp2) {
         boolean temp = false;
         if (temp1 < 0 && temp2 >= 120) {

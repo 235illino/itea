@@ -33,11 +33,11 @@ public class Task1 {
             if ((time >= 7 && time < 20)) {
                 result = true;
             }
-            System.out.println(result);
+
         } else {
             result = true;
-            System.out.println(result);
         }
+        System.out.println(result);
     }
 
 
@@ -67,7 +67,7 @@ boolean negative;
         boolean result = false;
         if (negative && (a < 0 && b < 0)) {
             result = true;
-        } else if (!negative && ((a < 0 && b > 0) || (a > 0 && b < 0))) {
+        } else if (!negative && (a < 0 || b < 0)){
             result = true;
         }
         return result;
@@ -97,7 +97,6 @@ true.
 (-1, 120) → true
 (2, 120) → false
         */
-
 
 
     public static boolean task6(int temp1, int temp2) {
@@ -135,7 +134,7 @@ true.
 
     public static void task8() {
         long result = 1;
-        for (int i = 1; i <= 15; i++) {
+        for (int i = 2; i <= 15; i++) {
             result = result * i;
             System.out.println("factorial " + i + "! = " + result);
         }
@@ -214,9 +213,9 @@ true.
 Дано два числа, вывести true если одно из чисел равно 10 или их сумма равна 10.
          */
         System.out.println("Задание 3");
-        task3(10,5);
-        task3(6,4);
-        task3(6,9);
+        task3(10, 5);
+        task3(6, 4);
+        task3(6, 9);
 
         /*
         Задание 4
@@ -229,8 +228,8 @@ boolean negative;
 равен true, тогда нужно вернуть true только если оба числа отрицательные.
          */
         System.out.println("Задание 4");
-        System.out.println(task4(-1,-1,true));
-        System.out.println(task4(1,-1,false));
+        System.out.println(task4(-1, -1, true));
+        System.out.println(task4(1, -1, false));
     /*
         Задание 5
 Вернуть true если заданное число кратно 3 или кратно 5 (делится без остатка).
@@ -286,7 +285,6 @@ true.
         task9(5, 2);
 
 
-
         System.out.println("Задание 10");
          /*
        Задание 10
@@ -298,12 +296,6 @@ true.
         task10();
 
     }
-
-
-
-
-
-
 
 
 }

@@ -14,23 +14,24 @@ public class Task2 {
 В массиве целых чисел поменять местами максимальный отрицательный элемент
 и минимальный положительный.
          */
-        int min = result[0];
+        int maxMin = 0;
         int indexMin = 0;
-        int max = result[0];
+        int minPlus = 0;
         int indexMax = 0;
         for (int i = 1; i < result.length; i++) {
-            if (min > result[i]) {
-                min = result[i];
+            if (result[i] < 0 && maxMin > result[i]) {
+                maxMin = result[i];
                 indexMin = i;
             }
-            if (max < result[i]) {
-                max = result[i];
+            if (result[i] >= 0 && minPlus >= result[i]) {
+                minPlus = result[i];
                 indexMax = i;
             }
         }
-        int temp = result[indexMin];
-        result[indexMin] = result[indexMax];
-        result[indexMax] = temp;
+
+            int temp = result[indexMin];
+            result[indexMin] = result[indexMax];
+            result[indexMax] = temp;
 
 //Код программы
         System.out.println("Задание 1");
@@ -57,8 +58,9 @@ public class Task2 {
 В массиве целых чисел утроить каждый положительный элемент, который стоит
 перед отрицательным.
          */
+
         int[] result2 = copyOf(numbers, numbers.length);
-        for (int i = 0; i < result2.length; i++) {
+        for (int i = 0; i < result2.length - 1; i++) {
             if (result2[i] > 0) {
                 if (result2[i + 1] < 0) {
                     result2[i] *= 3;

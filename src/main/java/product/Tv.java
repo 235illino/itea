@@ -1,6 +1,6 @@
 package product;
 
-public class Tv {
+public class Tv extends Product {
     private String brand;
     private String model;
     private String category;

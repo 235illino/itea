@@ -64,7 +64,7 @@ public class Car {
         car1.setVolume(1.5);
         car2.setVolume(0.0);
         car3.setVolume(3.6);
-        car3.setVolume(0.5);
+        car4.setVolume(0.5);
 
         TreeSet<Car> carsTree = new TreeSet<Car>(new CarSortVolume());
         carsTree.add(car1);

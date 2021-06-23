@@ -7,7 +7,7 @@ public class CarSortVolume implements Comparator<Car> {
     public int compare(Car left, Car right) {
         int i = Double.compare(left.getVolume(), right.getVolume());
         if (i == 0) {
-            return i = -1;
+            return i = 1;
         }
         return i;
     }

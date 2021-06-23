@@ -18,7 +18,7 @@ public class StringUtils {
             if (!unique.add(words.get(i))) {
                 result.add(words.get(i));
             }
-            unique.add(words.get(i));
+
         }
 
         return result;

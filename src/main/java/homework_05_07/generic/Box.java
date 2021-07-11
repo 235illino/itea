@@ -1,4 +1,4 @@
-package homework_05_07;
+package homework_05_07.generic;
 
 public class Box<T> {
     private T item;

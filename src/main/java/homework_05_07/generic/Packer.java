@@ -1,4 +1,4 @@
-package homework_05_07;
+package homework_05_07.generic;
 /*
 Доступен класс Packer, но он разработан с нарушением бизнес-логики и не
 имеет реализации. Исправьте код упаковщика, чтобы:
@@ -11,9 +11,6 @@ package homework_05_07;
 перепакованы без ошибок или предупреждений во время компиляции
 ● Переупаковка на самом деле происходит
  */
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Packer {
     public static void main(String[] args) {

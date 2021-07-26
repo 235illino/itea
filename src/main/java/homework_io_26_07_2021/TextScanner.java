@@ -16,31 +16,33 @@ public class TextScanner {
             while (line != null) {
                 if (line.contains("brand")) {
                     String brand = null;
-                    Pattern pattern = Pattern.compile("brand.+?\"");
+                    Pattern pattern = Pattern.compile("brand=\".+?\"");
                     Matcher matcher = pattern.matcher(line);
                     if (matcher.find()) {
 
-                        brand = line.substring(matcher.start() + 3, matcher.end() - 1);
+                        brand = line.substring(matcher.start() + 7, matcher.end() - 1);
                     }
 
 
                     String model = null;
-                    Pattern patternM = Pattern.compile("model.+?\"");
+                    Pattern patternM = Pattern.compile("model.+?\">");
                     Matcher matcherM = patternM.matcher(line);
                     if (matcherM.find()) {
 
-                        model = line.substring(matcherM.start() + 3, matcherM.end() - 1);
+                        model = line.substring(matcherM.start() + 7, matcherM.end() - 2);
                     }
 
                     car.setBrand(brand);
                     car.setModel(model);
 
                 } else if (line.contains("colour")) {
+                    String colour = null;
                     Pattern pattern = Pattern.compile(">.+?<");
                     Matcher matcher = pattern.matcher(line);
                     if (matcher.find()) {
-                        car.setColour(line.substring(matcher.start() + 1, matcher.end() - 1));
+                        colour = line.substring(matcher.start() + 1, matcher.end() - 1);
                     }
+                    car.setColour(colour);
                 } else if (line.contains("max-speed")) {
                     String unit = null;
                     Pattern pattern = Pattern.compile("<.+?>");
@@ -70,45 +72,42 @@ public class TextScanner {
                     car.setSpeedMax(speedMax);
 
                 } else if (line.contains("engine")) {
-                    String str = null;
+                    String str = freader.readLine();
                     String unit = null;
                     double volume = 0;
                     int rpm = 0;
                     String compressionRatio = null;
-                    while (!(str = freader.readLine()).equals("</engine>")) {
+                    while (!str.contains("</engine>")) {
                         if (str.contains("volume")) {
-                            Pattern pattern = Pattern.compile("<.+?>");
-                            Matcher matcher = pattern.matcher(line);
-                            String l = null;
-                            if (matcher.find()) {
-                                l = line.substring(matcher.start() + 1, matcher.end() - 1);
-                                Pattern pattern2 = Pattern.compile("\".+?\"");
-                                Matcher matcher2 = pattern2.matcher(l);
-                                if (matcher2.find()) {
-                                    unit = l.substring(matcher2.start() + 1, matcher2.end() - 1);
-                                }
 
-                            }
-                            Pattern patternV = Pattern.compile(">.+?<");
-                            Matcher matcherV = patternV.matcher(line);
 
-                            if (matcherV.find()) {
-                                volume = Double.parseDouble(line.substring(matcherV.start() + 1, matcherV.end() - 1));
+                            Pattern pattern2 = Pattern.compile("\".+?\"");
+                            Matcher matcher2 = pattern2.matcher(str);
+                            if (matcher2.find()) {
+                                unit = str.substring(matcher2.start() + 1, matcher2.end() - 1);
                             }
 
-                        } else if (str.contains("rmp")) {
+
                             Pattern patternV = Pattern.compile(">.+?<");
-                            Matcher matcherV = patternV.matcher(line);
+                            Matcher matcherV = patternV.matcher(str);
 
                             if (matcherV.find()) {
-                                rpm = Integer.parseInt(line.substring(matcherV.start() + 1, matcherV.end() - 1));
+                                volume = Double.parseDouble(str.substring(matcherV.start() + 1, matcherV.end() - 1));
+                            }
+
+                        } else if (str.contains("rpm")) {
+                            Pattern patternV = Pattern.compile(">.+?<");
+                            Matcher matcherV = patternV.matcher(str);
+
+                            if (matcherV.find()) {
+                                rpm = Integer.parseInt(str.substring(matcherV.start() + 1, matcherV.end() - 1));
                             }
                         } else if (str.contains("compression-ratio")) {
                             Pattern patternV = Pattern.compile(">.+?<");
-                            Matcher matcherV = patternV.matcher(line);
+                            Matcher matcherV = patternV.matcher(str);
 
                             if (matcherV.find()) {
-                                compressionRatio = line.substring(matcherV.start() + 1, matcherV.end() - 1);
+                                compressionRatio = str.substring(matcherV.start() + 1, matcherV.end() - 1);
                             }
                         }
                         str = freader.readLine();
@@ -140,7 +139,6 @@ public class TextScanner {
         }
         return car;
     }
-
 
 
 }

@@ -37,4 +37,14 @@ public class Engine {
     public void setCompressionRatio(String compressionRatio) {
         this.compressionRatio = compressionRatio;
     }
+
+    @Override
+    public String toString() {
+        return "Engine{" +
+                "unit='" + unit + '\'' +
+                ", volume=" + volume +
+                ", rpm=" + rpm +
+                ", compressionRatio='" + compressionRatio + '\'' +
+                '}';
+    }
 }

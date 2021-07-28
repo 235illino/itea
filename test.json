@@ -1,9 +1,4 @@
 {
-  "userId": 25,
-  "products": {
-    "Product{productId\u003d1, productName\u003d\u0027kiwi\u0027, price\u003d\u002725\u0027, category\u003d\u0027fruit\u0027}": 5,
-    "Product{productId\u003d2, productName\u003d\u0027banana\u0027, price\u003d\u002730\u0027, category\u003d\u0027fruit\u0027}": 15,
-    "Product{productId\u003d3, productName\u003d\u0027apple\u0027, price\u003d\u002745\u0027, category\u003d\u0027fruit\u0027}": 25
-  },
+  "userId": 31,
   "creationDate": "Jul 10, 2021, 12:00:00 AM"
 }

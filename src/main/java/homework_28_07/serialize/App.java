@@ -22,14 +22,18 @@ public class App {
         Date date = formatter.parse(strDate);
 
 
-        Order order = new Order(25, products, date);
+        Order order = new Order(31, products, date);
+        GsonParser gs = new GsonParser();
+        gs.writeOrder(order, "test.json");
+        gs.writeMap(order, "test2.json");
 
-        GsonParser gsonParser = new GsonParser();
-        gsonParser.write(order, "test.json");
+        Order parseOrder = gs.readOrder("test.json");
+        Map<Product, Integer> productsPars = gs.readMap("test2.json");
 
-        Order parseOrder = gsonParser.read("test.json");
+        parseOrder.setProducts(productsPars);
 
-        System.out.println(parseOrder.toString());
+        System.out.println(parseOrder);
+
 
     }
 }

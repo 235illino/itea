@@ -1,11 +1,17 @@
 package homework_28_07.serialize;
 
+import com.google.gson.annotations.Expose;
+
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Map;
 
-public class Order {
+public class Order implements Serializable {
     private long userId;
-    private Map<Product, Integer> products;
+
+
+    private transient Map<Product, Integer> products;
+
     private Date creationDate;
 
 

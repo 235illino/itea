@@ -19,6 +19,15 @@ public class AckermannFork extends RecursiveTask<Integer> {
 
     @Override
     protected Integer compute() {
+        if (m < 0 || n < 0) {
+           throw  new IllegalArgumentException(){
+                @Override
+                public String getMessage() {
+                    return "Wrong argument";
+                }
+            };
+
+        }
         int result = 0;
         final List<ForkJoinTask<Integer>> tasks = new ArrayList<>();
         final List<ForkJoinTask<Integer>> tasksJ = new ArrayList<>();
